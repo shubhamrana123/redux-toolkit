@@ -4,7 +4,9 @@ const usersSlice = createSlice({
     name:"usersSlice",
     initialState:[],
     reducers:{
-        addUser(_states,_action){},
+        addUser(state:any[],action){
+            state.push(action.payload)
+        },
         removeUser(_state,_action){},
         deleteUsers(_state,_action){}
     }
