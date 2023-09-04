@@ -1,0 +1,10 @@
+.listing{
+    display: 'flex';
+    flex-direction: 'column';
+    justify-content: 'space-between';
+    color:blue;
+    border:1
+}
+button{
+    background-color: aqua;
+}

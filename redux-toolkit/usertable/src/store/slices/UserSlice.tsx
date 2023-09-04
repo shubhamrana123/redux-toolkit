@@ -4,13 +4,25 @@ const usersSlice = createSlice({
     name:"usersSlice",
     initialState:[],
     reducers:{
-        addUser(state:any[],action){
+        addUsers(state:any[],action){
             state.push(action.payload)
+     
+            
+            console.log(action.payload);
+            
         },
-        removeUser(_state,_action){},
-        deleteUsers(_state,_action){}
+        removeUser(state:any,action){
+console.log("delete",action.payload);
+// state.pop(action.payload)
+state.splice(action.payload,1)
+
+        },
+        deleteUsers(state,action){
+state.splice(0,action.payload)
+        }
     }
 
 
 })
 export default usersSlice
+export const {addUsers,removeUser,deleteUsers} = usersSlice.actions
