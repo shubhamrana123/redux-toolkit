@@ -21,6 +21,7 @@ state.splice(action.payload,1)
 state.splice(0,action.payload)
         }
     }
+ 
 
 
 })
