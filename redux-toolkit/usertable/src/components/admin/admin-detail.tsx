@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import AdminList from "./AdminList";
 // import DisplayUsers from "./DisplayUsers";
 // import { addUsers } from "../store/slices/UserSlice";
-import { addAdminList } from "../../store/slices/AdminSlice";
+import { addAdminList } from "../../features/slices/AdminSlice";
 import ClearAdminList from "./clear-all-admin";
 const AdminDetail = () => {
   const dispatch = useDispatch<any>()
@@ -28,7 +28,7 @@ dispatch(addAdminList(payload))
     <Wrapper>
       <div className="content">
         <div className="admin-table">
-          <div className="admin-subtitle">List of User Details</div>
+          <div className="admin-subtitle">List of Admin Details</div>
           <button className="btn add-btn" onClick= {()=>addAdmin(fakeUserData() )} >Add New Admin list</button>
         </div>
         <ul>

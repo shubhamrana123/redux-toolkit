@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import usersSlice from "./UserSlice";
-import { clearAllList } from "../actions";
+import { clearAllList } from "../../store/actions";
+
 const adminSlice =  createSlice({
     name:"admin",
     initialState:[],
@@ -14,7 +15,8 @@ state.push(action.payload)
     },
     extraReducers(builder) {
         builder.addCase(clearAllList,(state:any,action)=>{
-            state.splice(0,action.payload)
+            // state.splice(0,action.payload)
+            return []
         })
     },
 })

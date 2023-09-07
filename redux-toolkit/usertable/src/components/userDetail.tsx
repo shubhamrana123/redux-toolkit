@@ -4,15 +4,16 @@ import styled from "styled-components";
 import { fakeUserData } from "../api";
 import { useDispatch, useSelector } from "react-redux";
 import DisplayUsers from "./DisplayUsers";
-import { addUsers } from "../store/slices/UserSlice";
+import { addUsers, fetchUserListApi } from "../features/slices/UserSlice";
 const UserDetail = () => {
   const dispatch = useDispatch<any>()
-  const data = useSelector((state:any)=>
-  {
-    return state.user
-  }
-)
-  console.log(data);
+//   const data = useSelector((state:any)=>
+//   {
+//     return state.user
+//   }
+// )
+const {data} = useSelector((state:any)=>state?.user?.data)
+  console.log(data?.name);
   const addUser = (payload:any) =>{
 // console.log("userData",payload);
 dispatch(addUsers(payload))
@@ -25,7 +26,13 @@ dispatch(addUsers(payload))
           <div className="admin-subtitle">List of User Details</div>
           <button className="btn add-btn" onClick= {()=>addUser(fakeUserData() )} >Add New Users</button>
         </div>
+        <button onClick={()=>dispatch(fetchUserListApi())}>fetch userList</button>
         <ul>
+          {data?.map((user:any)=>(
+            <div>
+              {user?.name}
+            </div>
+          ))}
           <DisplayUsers/>  
           {/* {data?.map((user:any,id:any)=>(
         <li>
